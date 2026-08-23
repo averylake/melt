@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4efe8" />
+  <meta name="description" content="Melting Point is a live digital artwork by Avery Lake whose condition is determined by the current U.S. Air Quality Index." />
+  <meta name="author" content="Avery Lake" />
+  <link rel="canonical" href="https://melt.averylakeofficial.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Melting Point" />
+  <meta property="og:title" content="Melting Point — Live AQI Artwork by Avery Lake" />
+  <meta property="og:description" content="AQI is not represented by the artwork. AQI determines the artwork’s condition." />
+  <meta property="og:url" content="https://melt.averylakeofficial.com/" />
+  <meta property="og:image" content="https://melt.averylakeofficial.com/social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Six melting ice cream cones moving through the official U.S. AQI colors." />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Melting Point — Live AQI Artwork by Avery Lake" />
+  <meta name="twitter:description" content="A live digital artwork whose condition is determined by the air quality around you." />
+  <meta name="twitter:image" content="https://melt.averylakeofficial.com/social-card.png" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <title>Melting Point — Live AQI Artwork by Avery Lake</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VisualArtwork",
+    "name": "Melting Point",
+    "url": "https://melt.averylakeofficial.com/",
+    "image": "https://melt.averylakeofficial.com/social-card.png",
+    "description": "A live digital artwork whose condition is determined by the current U.S. Air Quality Index.",
+    "artform": "Generative digital artwork",
+    "creator": {
+      "@type": "Person",
+      "name": "Avery Lake",
+      "url": "https://averylakeofficial.com/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="site-header">
+      <div>
+        <p class="eyebrow">LIVE ENVIRONMENTAL ARTWORK</p>
+        <h1>MELTING POINT</h1>
+        <a class="artist-link" href="https://averylakeofficial.com/" target="_blank" rel="noreferrer">Artwork by Avery Lake ↗</a>
+      </div>
+      <p class="header-note">Air quality determines the artwork’s condition.</p>
+    </header>
+
+    <section class="art-section" aria-labelledby="art-status">
+      <div class="art-frame" id="artFrame">
+        <div class="art-stage" id="artStage" aria-label="Live melting ice cream artwork controlled by AQI" role="img">
+          <img class="state-image is-visible" id="stateFront" src="states/state-1.png" alt="" />
+          <img class="state-image" id="stateBack" src="states/state-1.png" alt="" />
+        </div>
+
+        <div class="live-pill" id="livePill" aria-live="polite">
+          <span class="live-dot" id="liveDot"></span>
+          <span id="liveText">Choose a location to activate live AQI</span>
+        </div>
+      </div>
+
+      <div class="reading" id="art-status">
+        <div class="reading-primary">
+          <span class="aqi-number" id="aqiValue">—</span>
+          <div>
+            <span class="aqi-label">US AQI</span>
+            <span class="category" id="aqiCategory">Awaiting location</span>
+          </div>
+        </div>
+        <div class="location-block">
+          <span class="location-name" id="locationName">No location selected</span>
+          <span class="updated" id="updatedTime">Enter a city or use your location to connect the artwork to live air quality.</span>
+        </div>
+        <button class="save-state-button" type="button" id="saveStateButton" hidden>SAVE THIS STATE ↓</button>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Choose location">
+      <form id="cityForm" class="city-form">
+        <label for="cityInput">LOCATION</label>
+        <div class="input-row">
+          <input id="cityInput" name="city" type="search" autocomplete="off" placeholder="Sion, Vancouver, Tokyo…" aria-describedby="formHint" />
+          <button type="submit" id="submitButton">ACTIVATE</button>
+        </div>
+        <p id="formHint" class="form-hint">Search any town or city. The nearest available IQAir city reading determines the artwork.</p>
+        <p id="errorMessage" class="error-message" role="alert"></p>
+      </form>
+      <button class="location-button" type="button" id="geoButton" aria-label="Use my current location">
+        <span aria-hidden="true">◎</span> USE MY LOCATION
+      </button>
+    </section>
+
+    <section class="concept">
+      <p class="concept-statement">AQI is not represented by the artwork. <strong>AQI determines the artwork’s condition.</strong></p>
+      <div class="scale" aria-label="U.S. AQI color scale">
+        <div class="scale-item"><span style="--c:#00E400"></span><b>0–50</b><em>Good</em></div>
+        <div class="scale-item"><span style="--c:#FFFF00"></span><b>51–100</b><em>Moderate</em></div>
+        <div class="scale-item"><span style="--c:#FF7E00"></span><b>101–150</b><em>Unhealthy for sensitive groups</em></div>
+        <div class="scale-item"><span style="--c:#FF0000"></span><b>151–200</b><em>Unhealthy</em></div>
+        <div class="scale-item"><span style="--c:#8F3F97"></span><b>201–300</b><em>Very unhealthy</em></div>
+        <div class="scale-item"><span style="--c:#7E0023"></span><b>301+</b><em>Hazardous</em></div>
+      </div>
+    </section>
+
+    <section class="artist-statement" aria-labelledby="artistStatementTitle">
+      <div class="statement-label">
+        <p class="eyebrow" id="artistStatementTitle">ARTIST STATEMENT</p>
+        <a href="https://averylakeofficial.com/" target="_blank" rel="noreferrer">Avery Lake ↗</a>
+      </div>
+      <div class="statement-copy">
+        <p>I wish I did not know this scale so well. Living in British Columbia, Canada, checking the air quality around me has become part of everyday life. I remember a time, not very long ago, when summer was simply summer. Increasingly, it feels as though we have acquired a fifth season: fire season.</p>
+        <p>It is devastating to see how many places around the world are affected, and how something that once seemed distant has become increasingly close to home.</p>
+        <p><em>Melting Point</em> visualizes the entropy of our environment through the universally understood form of a melting ice cream cone. The work moves through the six official Air Quality Index (AQI) colors, progressively losing its form as conditions shift from Green (Good) to Maroon (Hazardous). What begins as an intact object gradually tilts, collapses, and dissolves. It is a literal meltdown of our atmospheric stability.</p>
+        <p>AQI is not represented by the artwork. <strong>AQI determines the artwork’s condition.</strong></p>
+      </div>
+    </section>
+
+    <section class="progression-reference" aria-labelledby="progressionTitle">
+      <div class="statement-label">
+        <p class="eyebrow" id="progressionTitle">REFERENCE PROGRESSION</p>
+      </div>
+      <figure class="preview-figure">
+        <img src="preview-artwork.png" alt="The six AQI states of the melting ice cream artwork from intact green to nearly vanished maroon." />
+      </figure>
+    </section>
+
+    <footer>
+      <span>Artwork by <a href="https://averylakeofficial.com/" target="_blank" rel="noreferrer">Avery Lake</a>. Live city-level US AQI data via <a href="https://www.iqair.com/ca/" target="_blank" rel="noreferrer">IQAir AirVisual</a>.</span>
+      <span>Color thresholds follow the U.S. EPA AQI standard.</span>
+    </footer>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
